@@ -12,3 +12,27 @@
     margin: 0;
     padding: 0;
 }
+
+
+input { 
+    border-radius: 10px;
+    height: 60px;
+    width: 100%;
+    font-size: 15px;
+}
+
+button {
+    background-color: black;
+    border-radius: 0;
+    letter-spacing: 15px;
+    font-size: 20px;
+    height: 60px;
+}
+
+.title {
+    font-size: 80px;
+    color:white;
+    font-family: 'Poiret One', cursive;
+    letter-spacing: 20px;
+    
+}
