@@ -1,7 +1,7 @@
 
 
 .banner {
-    max-height: 223px;
+    max-height: 250px;
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.479)), url(https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/itemimages/42/41/42412_v6.jpeg);
     
 }
@@ -11,18 +11,30 @@
     color:white;
     font-family: 'Poiret One', cursive;
     letter-spacing: 20px;
+    
+}
+
+body {
+    margin-top: 2.5rem;
+}
+
+h2 {
+    font-size: 50px;
+    color: white;  
+    letter-spacing: 30px;
 }
 
 h3{
     font-size: 16px;
     letter-spacing: 10px;
-    font-weight:700;
+    font-weight:600;
 }
 
 input { 
-    border-radius: 15px;
+    border-radius: 10px;
     height: 60px;
     width: 100%;
+    font-size: 15px;
 }
 
 button {
@@ -33,3 +45,44 @@ button {
     height: 60px;
     width: 60%;
 }
+
+
+@media (max-width: 700px) {
+    .title {
+      font-size: 25px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    body {
+        padding: 30px;
+        margin: 10px 0 10px 0;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+    .title {
+      font-size: 25px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    body {
+        padding: 20px;
+        margin: 5px 0 10px 0;
+    }
+
+    button {
+
+        width: 90%;
+        height: 90%;
+    }
+
+}
+
