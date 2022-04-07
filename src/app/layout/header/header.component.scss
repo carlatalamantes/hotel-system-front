@@ -7,3 +7,16 @@
     font-size: 18px;
 }
 
+li {
+    margin: 0 1rem 0 1rem;
+
+  }
+
+.nav-item{
+    color: black;
+}
+
+li:last-child{
+    margin-right: 4rem;
+}
+  
