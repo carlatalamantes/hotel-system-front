@@ -1,1 +1,56 @@
-<p>signup works!</p>
+
+<div class="overflow-hidden">
+    <header class="banner d-flex justify-content-center">
+        <div class="my-4">
+            <h1 class="title">SERENDIPIA</h1>
+            <hr style="height: 2px ; color: white; opacity: 100%;">
+            <h2 class="text-center">SIGN UP</h2>
+        </div>
+    </header>
+
+
+    <body class="row d-flex justify-content-center align-items-center ">
+        <form action="" class="col-lg-7 col-md-8 col-sm-9 ">
+            <div class="row d-flex justify-content-center">
+                <div class=" mb-5 col-lg-6 col-md-9 col-sm-12">
+                    <h3>EMAIL</h3>
+                    <input  type="email" class="form-control" placeholder="Enter your email" name ="email"aria-describedby="basic-addon2" required>
+                </div>
+
+                <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
+                    <h3>CELLPHONE</h3>
+                    <input type="tel" class="form-control" placeholder="Enter your cellphone number" name ="names" aria-describedby="basic-addon2" required>
+                </div>
+
+                <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
+                    <h3>FIRST NAME</h3>
+                    <input  type="text" class="form-control" placeholder="Enter your first name" name ="names"  aria-describedby="basic-addon2" required>
+                </div>
+
+                <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
+                    <h3>LAST NAME</h3>
+                    <input  type="text" class="form-control" placeholder="Enter your last name" name ="names"  aria-describedby="basic-addon2" required>
+                </div>
+    
+                <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
+                    <h3>PASSWORD</h3>
+                    <input type="password" class="form-control" placeholder="Enter your password" name="password"  aria-describedby="basic-addon2" required>
+                </div>
+
+                <div class="mb-2 col-lg-6 col-md-9 col-sm-12">
+                    <h3>CONFIRM</h3>
+                    <input type="password" class="form-control" placeholder="Confirm your password" name="password"  aria-describedby="basic-addon2" required>
+                </div>
+                
+                <div class="">
+                    <p>You have an account? <a [routerLink]="['/login']" style="text-decoration: underline; color: rgb(43, 43, 43);">Log in here</a></p> 
+                </div>
+    
+                <div class="d-flex justify-content-center mt-4" >
+                    <button type="submit" class="btn btn-dark">SIGN UP</button>
+                </div>
+            </div>
+            
+        </form>
+    </body>
+</div>
