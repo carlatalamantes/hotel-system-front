@@ -11,6 +11,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { RoomsComponent } from './pages/rooms/rooms.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { RoomdetailComponent } from './pages/roomdetail/roomdetail.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { RoomdetailComponent } from './pages/roomdetail/roomdetail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
