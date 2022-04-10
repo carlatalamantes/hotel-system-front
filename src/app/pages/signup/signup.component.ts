@@ -45,8 +45,8 @@ export class SignupComponent implements OnInit {
       this.signupService.signup({name,first_lastname,second_lastname, cellphone, email,password}).subscribe( {
         complete: () => {
           this.showSuccess=true;
-          this.message="User is logged";
-         console.log("Logged")
+          this.message="User was registered successfully";
+         console.log("Success")
         
     
         },
