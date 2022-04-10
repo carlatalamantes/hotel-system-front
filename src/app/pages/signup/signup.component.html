@@ -14,6 +14,12 @@
       [formGroup]="signupForm"
       class="col-lg-7 col-md-8 col-sm-9"
     >
+      <div class="alert alert-success" role="alert" *ngIf="showSuccess">
+        {{ message }}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="showError">
+        {{ message }}
+      </div>
       <div class="row d-flex justify-content-center">
         <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
           <h3>EMAIL</h3>
@@ -26,6 +32,21 @@
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              signupForm.controls['email'].invalid &&
+              (signupForm.controls['email'].dirty ||
+                signupForm.controls['email'].touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="signupForm.controls['email'].errors?.['required']">
+              Email is required
+            </div>
+            <div *ngIf="signupForm.controls['email'].errors?.['email']">
+              Email must be valid
+            </div>
+          </div>
         </div>
 
         <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
@@ -35,10 +56,28 @@
             type="tel"
             class="form-control"
             placeholder="Enter your cellphone number"
-            name="names"
+            name="cellphone"
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              signupForm.controls['cellphone'].invalid &&
+              (signupForm.controls['cellphone'].dirty ||
+                signupForm.controls['cellphone'].touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="signupForm.controls['cellphone'].errors?.['required']">
+              Cellphone is required
+            </div>
+            <div *ngIf="signupForm.controls['cellphone'].errors?.['minlength']">
+              Cellphone must be 10 digits long
+            </div>
+            <div *ngIf="signupForm.controls['cellphone'].errors?.['maxlength']">
+              Cellphone must be 10 digits long
+            </div>
+          </div>
         </div>
 
         <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
@@ -48,10 +87,22 @@
             type="text"
             class="form-control"
             placeholder="Enter your first name"
-            name="names"
+            name="name"
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              signupForm.controls['name'].invalid &&
+              (signupForm.controls['name'].dirty ||
+                signupForm.controls['name'].touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="signupForm.controls['name'].errors?.['required']">
+              Name is required
+            </div>
+          </div>
         </div>
 
         <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
@@ -61,15 +112,30 @@
             type="text"
             class="form-control"
             placeholder="Enter your last name"
-            name="names"
+            name="first_lastname"
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              signupForm.controls['first_lastname'].invalid &&
+              (signupForm.controls['first_lastname'].dirty ||
+                signupForm.controls['first_lastname'].touched)
+            "
+            class="text-danger"
+          >
+            <div
+              *ngIf="signupForm.controls['first_lastname'].errors?.['required']"
+            >
+              Lastname is required
+            </div>
+          </div>
         </div>
 
         <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
           <h3>PASSWORD</h3>
           <input
+            formControlName="password"
             type="password"
             class="form-control"
             placeholder="Enter your password"
@@ -77,19 +143,51 @@
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              signupForm.controls['password'].invalid &&
+              (signupForm.controls['password'].dirty ||
+                signupForm.controls['password'].touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="signupForm.controls['password'].errors?.['required']">
+              Password is required
+            </div>
+          </div>
         </div>
 
         <div class="mb-2 col-lg-6 col-md-9 col-sm-12">
           <h3>CONFIRM</h3>
           <input
-            formControlName="password"
+            formControlName="confirmPassword"
             type="password"
             class="form-control"
             placeholder="Confirm your password"
-            name="password"
+            name="confirmPassword"
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              signupForm.controls['confirmPassword'].invalid &&
+              (signupForm.controls['confirmPassword'].dirty ||
+                signupForm.controls['confirmPassword'].touched)
+            "
+            class="text-danger"
+          >
+            <div
+              *ngIf="signupForm.controls['confirmPassword'].errors?.['required']"
+            >
+              Password is required
+            </div>
+          </div>
+          <div
+            *ngIf="signupForm.errors?.['passwordMismatch']"
+            class="text-danger"
+          >
+            Passwords do not match
+          </div>
         </div>
 
         <div>
