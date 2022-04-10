@@ -1,5 +1,6 @@
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -8,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingComponent implements OnInit {
   bookingForm:any;
-  constructor(private fb: FormBuilder) { 
-
+  constructor(private fb: FormBuilder,private route: ActivatedRoute) { 
+    const id = this.route.snapshot.paramMap.get('id');
     this.bookingForm = this.fb.group({
       guest_count: ['', [Validators.required]],
       start_date: ['', [Validators.required]],
@@ -19,7 +20,6 @@ export class BookingComponent implements OnInit {
 
   }
 
-  //Agregar ID de habitación
 
   ngOnInit(): void {
   }
