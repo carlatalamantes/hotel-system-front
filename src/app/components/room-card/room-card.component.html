@@ -1,0 +1,42 @@
+<div class="card bg-dark text-white">
+  <img
+    src="https://emot4jriyur.exactdn.com/wp-content/uploads/2021/06/the-beach-tulum-hotel-mexico_04.jpg?strip=all&lossy=1&resize=1200%2C900&ssl=1"
+    class="card-img"
+    alt="..."
+  />
+  <div class="card-img-overlay">
+    <div class="row d-flex justify-content-center align-items-center">
+      <h5 class="col-lg-9 col-md-6 col-sm-12 card-title">
+        {{ item.name | uppercase }}
+      </h5>
+      <h5
+        style="letter-spacing: 10px; font-weight: bold"
+        class="text-end col-lg-3 col-md-6 col-sm-12"
+      >
+        {{ item.nightly_price }}
+      </h5>
+    </div>
+
+    <div class="row align-items-end">
+      <div class="col-6 d-flex justify-content-center my-2">
+        <button
+          (click)="goToDetail('booking', item._id)"
+          type="button"
+          class="btn btn-light"
+        >
+          BOOK
+        </button>
+      </div>
+
+      <div class="col-6 d-flex justify-content-center my-2">
+        <button
+          (click)="goToDetail('roomdetail', item._id)"
+          type="button"
+          class="btn btn-secondary"
+        >
+          MORE
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

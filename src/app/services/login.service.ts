@@ -27,7 +27,6 @@ export class LoginService {
   }
 
   isLogged(){
-    console.log(this.getToken())
     if(this.getToken()){
       return true
     }

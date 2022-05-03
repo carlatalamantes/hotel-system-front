@@ -5,29 +5,20 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
-  styleUrls: ['./rooms.component.scss']
+  styleUrls: ['./rooms.component.scss'],
 })
 export class RoomsComponent implements OnInit {
+  roomArray: any[] = [];
+  num: any = 6;
 
-  roomArray:any[]=[];
-  num:any = 6;
-
-
-  constructor(private roomService:RoomsService, private router:Router) { 
-    console.log(this.roomService.getRoom().subscribe((res: any)=>{
-      this.roomArray=res;
-      console.log(res)
-    }))
-
+  constructor(private roomService: RoomsService, private router: Router) {
+    this.roomService.getRooms().subscribe((res: any) => {
+      this.roomArray = res;
+      this.num = res.length;
+    });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-  goToDetail(path:any,id:any){
-    let url: string = "/"+path+"/" + id
-    this.router.navigateByUrl(url);
-  }
-
+  
 }

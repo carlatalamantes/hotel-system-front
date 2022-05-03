@@ -10,9 +10,9 @@ import { SignupService } from 'src/app/services/signup.service';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
-  showError:Boolean=false;
-  showSuccess:Boolean=false;
-  message:String="";
+  isError: Boolean = false;
+  showAlert: Boolean = false;
+  message: String = '';
 
   constructor(private fb: FormBuilder, private signupService: SignupService) { 
     this.signupForm = this.fb.group({
@@ -44,21 +44,19 @@ export class SignupComponent implements OnInit {
       const { name,first_lastname,second_lastname, cellphone, email,password } = this.signupForm.getRawValue();
       this.signupService.signup({name,first_lastname,second_lastname, cellphone, email,password}).subscribe( {
         complete: () => {
-          this.showSuccess=true;
+          this.isError = false;
           this.message="User was registered successfully";
-         console.log("Success")
-        
-    
+          this.showAlert=true;
+          this.signupForm.reset()
+
+   
         },
         error: (err) =>{
-          this.showError=true;
-          this.message=err.error.message;
-          console.log(err.error.message)
+          this.isError = true;
+          this.message = err.error.message;
+          this.showAlert = true;
         }
       });
-
-    } else {
-      console.log(this.signupForm.getRawValue())
     }
   }
 
