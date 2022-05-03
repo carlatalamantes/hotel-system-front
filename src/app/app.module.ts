@@ -14,6 +14,10 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { RoomdetailComponent } from './pages/roomdetail/roomdetail.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertComponent } from './components/alert/alert.component';
+import { CookieService } from 'ngx-cookie-service';
+import { CanActivateViaAuthGuardGuard } from './guards/can-activate-via-auth-guard.guard';
+import { CanActivateAlreadyLoggedGuard } from './guards/can-activate-already-logged.guard';
 
 @NgModule({
   declarations: [
@@ -25,16 +29,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     RoomsComponent,
     BookingComponent,
-    RoomdetailComponent
+    RoomdetailComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService, CanActivateViaAuthGuardGuard,CanActivateAlreadyLoggedGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

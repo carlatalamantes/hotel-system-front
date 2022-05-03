@@ -14,12 +14,12 @@
       [formGroup]="loginForm"
       class="col-lg-5 col-md-8 col-sm-9"
     >
-      <div class="alert alert-success" role="alert" *ngIf="showSuccess">
-        {{ message }}
-      </div>
-      <div class="alert alert-danger" role="alert" *ngIf="showError">
-        {{ message }}
-      </div>
+      <app-alert
+        [message]="message"
+        [showAlert]="showAlert"
+        [isError]="isError"
+      ></app-alert>
+
       <div class="mb-5">
         <h3>EMAIL</h3>
         <input
