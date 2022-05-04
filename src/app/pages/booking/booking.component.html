@@ -7,7 +7,7 @@
     </div>
   </header>
 
-  <body class="row d-flex justify-content-center align-items-center m-5">
+  <body class="row d-flex justify-content-center align-items-center ">
     <form
       (ngSubmit)="onSubmit()"
       [formGroup]="bookingForm"
@@ -30,7 +30,7 @@
           />
         </div>
 
-        <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
+        <div class="mb-5 col-lg-6 col-md-12">
           <h3>CHECK-IN</h3>
           <input
             formControlName="start_date"
@@ -43,7 +43,7 @@
           />
         </div>
 
-        <div class="mb-5 col-lg-6 col-md-9 col-sm-12">
+        <div class="mb-5 col-lg-6 col-md-12">
           <h3>CHECK-OUT</h3>
           <input
             formControlName="end_date"
@@ -56,7 +56,7 @@
           />
         </div>
 
-        <div class="d-flex justify-content-center mt-4">
+        <div class="d-flex justify-content-center mt-2 mb-5">
           <button type="submit" class="btn btn-dark">BOOK</button>
         </div>
       </div>
@@ -89,7 +89,7 @@
           <p>SERVICE</p>
         </div>
 
-        <h1 class="room-name">PRICE <span>$XXXX</span></h1>
+        <h1 class="room-name mb-5" style="line-height: 30px;">PRICE <span>$XXXX</span></h1>
       </div>
     </div>
   </body>

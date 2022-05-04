@@ -1,5 +1,5 @@
 <div class="main">
-    <header id="header-background" class="text-center">
+    <header id="header-background" class="text-center m-0">
         <h1 id="header-title">SERENDIPIA</h1>
         <h2 id="header-text">LIVE THE MOMENT</h2>
         <button [routerLink]="['/rooms']" id="button-booknow"> BOOK NOW</button>
@@ -28,15 +28,15 @@
 
         <section class="row d-flex justify-content-center m-0">
             <div class="col-lg-7 col-md-9 col-sm-12 d-flex justify-content-between">
-                <div class="rounded-circle">
+                <div class="rounded-circle icon-img">
                     <img src="../../../assets/home/bed.png"  alt="...">
                 </div>
 
-                <div class="rounded-circle">
+                <div class="rounded-circle icon-img">
                     <img src="../../../assets/home/spa.png"  alt="...">
                 </div>
                 
-                <div class="rounded-circle">
+                <div class="rounded-circle icon-img">
                     <img src="../../../assets/home/food.png"  alt="...">
                 </div>
         
@@ -108,13 +108,13 @@
             </div>
 
             <div class="d-flex justify-content-center mt-4 mb-5">
-                <button type="submit" class="btn btn-dark">BOOK NOW</button>
+                <button [routerLink]="['/rooms']" class="btn btn-dark">BOOK NOW</button>
             </div>
         </section>
 
 
         <section class="row my-5">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -122,25 +122,20 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <video src="../../../assets/home/video1.mp4" class="d-block w-100" autoplay poster="posterimage.jpg">
-                        Tu navegador no admite el elemento <code>video</code>.
-                    </video>                    
+                    <img  class="d-block w-100 carousel-img" src="https://images.pexels.com/photos/5992273/pexels-photo-5992273.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">                   
                     <div class="carousel-caption d-none d-md-block">
                       <p>Step into your dream vacation.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <video src="../../../assets/home/video2.mp4" class="d-block w-100" autoplay poster="posterimage.jpg">
-                        Tu navegador no admite el elemento <code>video</code>.
-                    </video>   
+
+                    <img  class="d-block w-100 carousel-img" src="https://images.pexels.com/photos/5339904/pexels-photo-5339904.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""> 
                     <div class="carousel-caption d-none d-md-block">
                       <p>Enjoy yourself.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <video  style="filter: brightness(90%);" src="../../../assets/home/video3.mp4" class="d-block w-100" autoplay poster="posterimage.jpg">
-                        Tu navegador no admite el elemento <code>video</code>.
-                    </video>   
+                    <img  class="d-block w-100 carousel-img" style="filter: brightness(80%);" src="https://images.pexels.com/photos/2889381/pexels-photo-2889381.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
                     <div class="carousel-caption d-none d-md-block">
                       <p>Begin your journey.</p>
                     </div>
@@ -157,7 +152,7 @@
                     aliquip ex ea commodo consequat.
                 </p>
                 <div class="d-flex justify-content-center mt-4 mb-2">
-                    <button type="submit" class="btn btn-dark">BOOK NOW</button>
+                    <button [routerLink]="['/rooms']" class="btn btn-dark">BOOK NOW</button>
                 </div>
               </div>
         </section>

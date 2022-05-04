@@ -6,12 +6,13 @@
     align-items: center;
 }
 
+
 .row {
     margin: 0;
 }
 
 header#header-background {
-  background-image:url('../../../assets/home/banner.svg');
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.479)), url('../../../assets/home/banner.svg');
   background-size:cover;
   background-position: center;
   height: 652px;
@@ -19,6 +20,7 @@ header#header-background {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 
@@ -92,10 +94,23 @@ img {
     height: 30px;
 }
 
+.carousel-img {
+    max-height: 700px;
+}
+
+
+
 
 @media (max-width: 700px) {
+   
+    #button-booknow {
+        height: 57px;
+        width: 200px;
+        font-size: medium;
+    }
+
     #header-title {
-      font-size: 40px;
+      font-size: 25px;
     }
 
     h2 {
@@ -104,6 +119,11 @@ img {
 
     p {
         font-size: 15px;
+    }
+
+    .icon-img {
+        width: 80px;
+        height: 80px;
     }
 
 
