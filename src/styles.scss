@@ -5,6 +5,9 @@
 /* PoiretOne Font AND Archivo*/
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100&family=Poiret+One&display=swap');
 
+ body{
+    min-height: calc(100vh - 455px);
+} 
 
 *{
     font-family: 'Poppins', sans-serif;

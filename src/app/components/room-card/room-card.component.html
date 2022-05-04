@@ -5,20 +5,20 @@
     alt="..."
   />
   <div class="card-img-overlay">
-    <div class="row d-flex justify-content-center align-items-center">
-      <h5 class="col-lg-9 col-md-6 col-sm-12 card-title">
+    <div class="row d-flex justify-content-center align-items-center m-0">
+      <h5 class="col-12 card-title text-center">
         {{ item.name | uppercase }}
       </h5>
       <h5
         style="letter-spacing: 10px; font-weight: bold"
-        class="text-end col-lg-3 col-md-6 col-sm-12"
+        class="text-center col-12 "
       >
-        {{ item.nightly_price }}
+        ${{ item.nightly_price }}
       </h5>
     </div>
 
-    <div class="row align-items-end">
-      <div class="col-6 d-flex justify-content-center my-2">
+    <div class="row d-flex justify-content-center m-0" >
+      <div class="col-lg-9 col-sm-12 d-flex justify-content-center my-2">
         <button
           (click)="goToDetail('booking', item._id)"
           type="button"
@@ -28,11 +28,11 @@
         </button>
       </div>
 
-      <div class="col-6 d-flex justify-content-center my-2">
+      <div class="col-lg-9  col-sm-12 d-flex justify-content-center my-2">
         <button
           (click)="goToDetail('roomdetail', item._id)"
           type="button"
-          class="btn btn-secondary"
+          class="btn btn-dark"
         >
           MORE
         </button>
