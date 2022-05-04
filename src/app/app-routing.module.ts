@@ -15,8 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent,canActivate:[CanActivateAlreadyLoggedGuard]},
   { path: 'rooms', component: RoomsComponent,canActivate:[CanActivateViaAuthGuardGuard]},
-  { path: 'booking/:id', component: BookingComponent},
-  { path: 'roomdetail/:id', component: RoomdetailComponent}
+  { path: 'booking/:id', component: BookingComponent,canActivate:[CanActivateViaAuthGuardGuard]},
+  { path: 'roomdetail/:id', component: RoomdetailComponent,canActivate:[CanActivateViaAuthGuardGuard]}
 ];
 
 @NgModule({

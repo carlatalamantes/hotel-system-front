@@ -18,9 +18,12 @@ export class RoomCardComponent implements OnChanges {
     this.item=changes.item.currentValue;
   }
 
-  goToDetail(path: any, id: any) {
-    let url: string = '/' + path + '/' + id;
-    this.router.navigateByUrl(url);
+  goToDetail(id: any) {
+    this.router.navigate([`/roomdetail/${id}`]);
   }
 
+  
+  goToBook(id: any) {
+    this.router.navigate([`/booking/${id}`]);
+  }
 }

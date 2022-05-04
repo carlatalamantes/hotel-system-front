@@ -16,13 +16,15 @@ export class RoomdetailComponent implements OnInit {
     this.roomID=this.activeRoute.snapshot.paramMap.get("id")
     this.roomService.getRoom(this.roomID).subscribe((res: any) => {
       this.room=res;
-     console.log(this.room)
     });
   }
 
   ngOnInit(): void {
   }
-
+  
+  goToBook(id: any) {
+    this.router.navigate([`/booking/${id}`]);
+  }
 
 
 }

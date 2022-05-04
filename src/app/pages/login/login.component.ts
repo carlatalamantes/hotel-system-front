@@ -1,6 +1,6 @@
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   showAlert: Boolean = false;
   message: String = '';
 
-  constructor(private fb: FormBuilder, private loginService: LoginService,private router:Router) {
+  constructor(private fb: FormBuilder, private UserService: UserService,private router:Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginForm.valid) {
       const data = this.loginForm.getRawValue();
-      this.loginService.login(data).subscribe({
+      this.UserService.login(data).subscribe({
         next: (response) => {  
-          this.loginService.setToken(response.token)
+          this.UserService.setToken(response.token)
           this.router.navigateByUrl("/rooms")
 
         },

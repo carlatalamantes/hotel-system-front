@@ -20,7 +20,7 @@
     <div class="row align-items-end">
       <div class="col-6 d-flex justify-content-center my-2">
         <button
-          (click)="goToDetail('booking', item._id)"
+          (click)="goToBook(item._id)"
           type="button"
           class="btn btn-light"
         >
@@ -30,7 +30,7 @@
 
       <div class="col-6 d-flex justify-content-center my-2">
         <button
-          (click)="goToDetail('roomdetail', item._id)"
+          (click)="goToDetail(item._id)"
           type="button"
           class="btn btn-secondary"
         >

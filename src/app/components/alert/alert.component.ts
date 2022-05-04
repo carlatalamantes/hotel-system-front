@@ -27,7 +27,6 @@ export class AlertComponent implements OnChanges  {
     this.isError=changes.isError.currentValue;
     this.showAlert=changes.showAlert.currentValue;
     this.message=changes.message.currentValue;
-    console.log(changes)
   }
 
 }
