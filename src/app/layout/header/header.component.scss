@@ -27,3 +27,11 @@ li:last-child{
     letter-spacing: 15px;
     margin: 15px;
 }
+
+#mobile-navbar{
+    flex-direction: column;
+}
+
+.navbar-toggler{
+    border:none;
+}

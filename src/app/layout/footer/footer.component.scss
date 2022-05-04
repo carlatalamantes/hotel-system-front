@@ -4,8 +4,6 @@
 
 }
 
-
-
 li {
     margin: 0 1rem 0 1rem;
 
@@ -14,9 +12,26 @@ li {
 .nav-item a{
     color: black;
     font-size: 18px;
+    padding: 1.5rem;
 }
 
-li:first-child{
-    margin-left: 4rem;
+#footer ul li a:hover{
+    color: black;
+
 }
+
+
+
+
+@media screen and (max-width: 768px) {
+    #footer{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+
+
+
   

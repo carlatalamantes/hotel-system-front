@@ -6,8 +6,13 @@
     align-items: center;
 }
 
+
+.row {
+    margin: 0;
+}
+
 header#header-background {
-  background-image:url('../../../assets/home/banner.svg');
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.479), rgba(0, 0, 0, 0.479)), url('../../../assets/home/banner.svg');
   background-size:cover;
   background-position: center;
   height: 652px;
@@ -15,6 +20,7 @@ header#header-background {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 
@@ -55,12 +61,22 @@ p {
 h2 {
     font-weight: 400;
     font-size: 40px;
-    line-height: 45px;
     letter-spacing: 0.2em;
 }
 
 img {
     object-fit: cover;
+}
+
+.img1 {
+    max-height: 606px;
+    width: 100%;
+}
+
+
+.card {
+    height: 484px;
+    max-width: 412px;
 }
 
 .rounded-circle {
@@ -72,3 +88,45 @@ img {
     justify-content: center;
     align-items: center;
 }
+
+.contact-imgs {
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-img {
+    max-height: 700px;
+}
+
+
+
+
+@media (max-width: 700px) {
+   
+    #button-booknow {
+        height: 57px;
+        width: 200px;
+        font-size: medium;
+    }
+
+    #header-title {
+      font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .icon-img {
+        width: 80px;
+        height: 80px;
+    }
+
+
+}
+
+
