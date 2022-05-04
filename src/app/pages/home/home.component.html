@@ -1,11 +1,11 @@
 <div class="main">
     <header id="header-background" class="text-center">
-        <h1 id="header-title">MOTOMAMI</h1>
+        <h1 id="header-title">SERENDIPIA</h1>
         <h2 id="header-text">LIVE THE MOMENT</h2>
         <button [routerLink]="['/rooms']" id="button-booknow"> BOOK NOW</button>
     </header>
 
-    <body>
+    <body class="p-4">
         <section class="row m-0">
             <div class=" row col-12 d-flex justify-content-center  my-3">
 
@@ -42,9 +42,125 @@
         
             </div>
             
-
         </section>
 
+        <section class="row my-5">
+            <div class="col-lg-6 col-sm-12">
+                <img class="img1" src="../../../assets/home/home1.svg" alt="">
+            </div>
+
+            <div class="col-lg-6 col-sm-12 d-flex align-items-center">
+                <p class="px-3 my-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+
+                </p>
+            </div>
+        </section>
+
+        <section class="row d-flex justify-content-center">   
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center my-5">
+                <div class=" card bg-dark text-white p-0">
+                    <img  style="filter: brightness(50%); height: 100%;" src="https://images.pexels.com/photos/3212179/pexels-photo-3212179.jpeg?cs=srgb&dl=pexels-john-tekeridis-3212179.jpg&fm=jpg" class="card-img" alt="...">
+    
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                      <h2 class="card-title">SPA</h2>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center my-5">
+                <div class=" card bg-dark text-white p-0">
+                    <img  style="filter: brightness(50%); height: 100%;" src="https://images.pexels.com/photos/331107/pexels-photo-331107.jpeg?cs=srgb&dl=pexels-nastyasensei-331107.jpg&fm=jpg" class="card-img" alt="...">
+    
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                      <h2 class="card-title text-center">RESTAURANT & BAR</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center my-5">
+                <div class=" card bg-dark text-white p-0">
+                    <img  style="filter: brightness(50%); height: 100%;" src="https://images.pexels.com/photos/2147479/pexels-photo-2147479.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img" alt="...">
+    
+                    <div class="card-img-overlay d-flex align-items-center justify-content-center">
+                      <h2 class="card-title">POOLS</h2>
+                    </div>
+                </div>
+
+            </div>
+        </section>  
+
+        <section class="row">
+            <div class="col-12">
+                <p class="text-center">Find us at en lorem ipsum dolor sit amet</p>
+
+                <div class=" d-flex justify-content-center">
+                    <a href="mailto:hotelSerendipipia@gmail.com"><img class = "contact-imgs mx-3" src="../../../assets/home/email.png"  alt="..."></a>
+                    <a href="https://www.facebook.com"><img class = "contact-imgs mx-3" src="../../../assets/home/fb.png"  alt="..."></a>
+                    <a href="https://www.instagram.com"><img class = "contact-imgs mx-3" src="../../../assets/home/insta.png"  alt="..."></a>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-4 mb-5">
+                <button type="submit" class="btn btn-dark">BOOK NOW</button>
+            </div>
+        </section>
+
+
+        <section class="row my-5">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <video src="../../../assets/home/video1.mp4" class="d-block w-100" autoplay poster="posterimage.jpg">
+                        Tu navegador no admite el elemento <code>video</code>.
+                    </video>                    
+                    <div class="carousel-caption d-none d-md-block">
+                      <p>Step into your dream vacation.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <video src="../../../assets/home/video2.mp4" class="d-block w-100" autoplay poster="posterimage.jpg">
+                        Tu navegador no admite el elemento <code>video</code>.
+                    </video>   
+                    <div class="carousel-caption d-none d-md-block">
+                      <p>Enjoy yourself.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <video  style="filter: brightness(90%);" src="../../../assets/home/video3.mp4" class="d-block w-100" autoplay poster="posterimage.jpg">
+                        Tu navegador no admite el elemento <code>video</code>.
+                    </video>   
+                    <div class="carousel-caption d-none d-md-block">
+                      <p>Begin your journey.</p>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+
+              <div>
+                <p class="my-5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
+                </p>
+                <div class="d-flex justify-content-center mt-4 mb-2">
+                    <button type="submit" class="btn btn-dark">BOOK NOW</button>
+                </div>
+              </div>
+        </section>
 
     </body>
 
