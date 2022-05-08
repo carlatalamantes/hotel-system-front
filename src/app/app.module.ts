@@ -19,6 +19,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { CanActivateViaAuthGuardGuard } from './guards/can-activate-via-auth-guard.guard';
 import { CanActivateAlreadyLoggedGuard } from './guards/can-activate-already-logged.guard';
 import { RoomCardComponent } from './components/room-card/room-card.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { RoomCardComponent } from './components/room-card/room-card.component';
     RoomdetailComponent,
     AlertComponent,
     RoomCardComponent,
+    ProfileComponent,
+    ReservationCardComponent,
   ],
   imports: [
     BrowserModule,
