@@ -9,6 +9,7 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { RoomdetailComponent } from './pages/roomdetail/roomdetail.component';
 import { CanActivateViaAuthGuardGuard } from './guards/can-activate-via-auth-guard.guard';
 import { CanActivateAlreadyLoggedGuard } from './guards/can-activate-already-logged.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent,canActivate:[CanActivateAlreadyLoggedGuard]},
   { path: 'rooms', component: RoomsComponent,canActivate:[CanActivateViaAuthGuardGuard]},
   { path: 'booking/:id', component: BookingComponent,canActivate:[CanActivateViaAuthGuardGuard]},
-  { path: 'roomdetail/:id', component: RoomdetailComponent,canActivate:[CanActivateViaAuthGuardGuard]}
+  { path: 'roomdetail/:id', component: RoomdetailComponent,canActivate:[CanActivateViaAuthGuardGuard]},
+  { path: 'profile', component: ProfileComponent,canActivate:[CanActivateViaAuthGuardGuard] }
 ];
 
 @NgModule({

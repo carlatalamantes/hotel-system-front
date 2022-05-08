@@ -58,6 +58,13 @@
             >Register</a
           >
         </li>
+
+        <li class="nav-item" *ngIf="isUserLogged()">
+          <a [routerLink]="['/profile']" class="nav-link m-4 menu-item"
+            >Profile</a
+          >
+        </li>
+        
       </ul>
     </div>
   </div>
