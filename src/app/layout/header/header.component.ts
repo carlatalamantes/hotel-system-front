@@ -22,4 +22,8 @@ export class HeaderComponent implements OnInit {
      this.router.navigate(["/home"])
 
   }
+
+  isAdmin(){
+    return this.UserService.isAdmin()
+  }
 }

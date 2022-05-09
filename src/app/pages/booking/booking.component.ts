@@ -2,6 +2,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomsService } from 'src/app/services/rooms.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-booking',
@@ -19,7 +20,7 @@ export class BookingComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private activeRoute: ActivatedRoute,
-    private roomService: RoomsService
+    private roomService: RoomsService,
   ) {
     this.roomID = this.activeRoute.snapshot.paramMap.get('id');
     this.roomService.getRoom(this.roomID).subscribe((res: any) => {
@@ -33,7 +34,9 @@ export class BookingComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   getTotalDays(date1: Date, date2: Date): number {
     if (date2.getTime() > date1.getTime()) {

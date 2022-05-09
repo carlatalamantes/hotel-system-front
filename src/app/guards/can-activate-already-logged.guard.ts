@@ -14,7 +14,7 @@ export class CanActivateAlreadyLoggedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(this.UserService.isLogged()){
-        this.router.navigate(["/rooms"])
+        this.router.navigate(["/home"])
         return false
       }
     return true;

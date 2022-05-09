@@ -1,0 +1,27 @@
+<div class="admin_wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="content_wrapper">
+    <div class="table-responsive">
+      <table class="table table-borderless">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+            <th scope="col">Guests</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let reservation of reservationsArray; let i = index">
+          <tr>
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ reservation.start_date | date: "shortDate" }}</td>
+            <td>{{ reservation.end_date | date: "shortDate" }}</td>
+            <td>{{ reservation.guest_count }}</td>
+            <td><a>Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

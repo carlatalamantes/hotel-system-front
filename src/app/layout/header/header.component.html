@@ -16,7 +16,9 @@
       >
         SERENDIPIA
       </a>
-      <div class="w-100 text-right d-flex align-items-center justify-content-center">
+      <div
+        class="w-100 text-right d-flex align-items-center justify-content-center"
+      >
         <button
           class="navbar-toggler mb-2"
           type="button"
@@ -37,7 +39,7 @@
             >Home</a
           >
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isUserLogged()">
           <a [routerLink]="['/rooms']" class="nav-link m-4 menu-item"
             >Book now</a
           >
@@ -45,17 +47,22 @@
         <li class="nav-item" *ngIf="!isUserLogged()">
           <a [routerLink]="['/login']" class="nav-link m-4 menu-item">Log in</a>
         </li>
+        <li class="nav-item" *ngIf="!isUserLogged()">
+          <a [routerLink]="['/signup']" class="nav-link m-4 menu-item"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isAdmin()">
+          <a [routerLink]="['/admin']" class="nav-link m-4 menu-item"
+            >Dashboard</a
+          >
+        </li>
         <li class="nav-item" *ngIf="isUserLogged()">
           <a
             [routerLink]="['/home']"
             class="nav-link m-4 menu-item"
             (click)="logout()"
             >Log out</a
-          >
-        </li>
-        <li class="nav-item" *ngIf="!isUserLogged()">
-          <a [routerLink]="['/signup']" class="nav-link m-4 menu-item"
-            >Register</a
           >
         </li>
       </ul>

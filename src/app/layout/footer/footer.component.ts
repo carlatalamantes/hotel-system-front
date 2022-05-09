@@ -22,7 +22,10 @@ export class FooterComponent implements OnInit {
   logout():void{
      this.UserService.deleteToken()
      this.router.navigate(["/home"])
+  }
 
+  isAdmin(){
+    return this.UserService.isAdmin()
   }
 
 }
