@@ -34,5 +34,10 @@
         >Dashboard</a
       >
     </li>
+    <li class="nav-item" *ngIf="isUserLogged()">
+      <a class="nav-link" [routerLink]="['/profile']" data-bs-toggle="collapse"
+        >Profile</a
+      >
+    </li>
   </ul>
 </nav>

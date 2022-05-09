@@ -12,6 +12,7 @@ import { CanActivateAlreadyLoggedGuard } from './guards/can-activate-already-log
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { CanActivateAdminGuard } from './guards/can-activate-admin.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,8 +24,7 @@ const routes: Routes = [
   { path: 'roomdetail/:id', component: RoomdetailComponent,canActivate:[CanActivateViaAuthGuardGuard]},
   { path: 'admin', component: AdminComponent, canActivate:[CanActivateAdminGuard]},
   { path: 'admin/users', component: AdminUsersComponent,canActivate:[CanActivateAdminGuard]},
-
-
+  { path: 'profile', component: ProfileComponent,canActivate:[CanActivateViaAuthGuardGuard] }
 ];
 
 @NgModule({

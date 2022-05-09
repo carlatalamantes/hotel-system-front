@@ -22,6 +22,8 @@ import { RoomCardComponent } from './components/room-card/room-card.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     AdminComponent,
     AdminUsersComponent,
     SidebarComponent,
+    ProfileComponent,
+    ReservationCardComponent,
   ],
   imports: [
     BrowserModule,
