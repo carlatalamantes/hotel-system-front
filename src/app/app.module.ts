@@ -28,6 +28,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginSuccessComponent } from './pages/login-success/login-success.component';
 
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { AdminDetailComponent } from './pages/admin-detail/admin-detail.component';
+import { AdminRoomsComponent } from './pages/admin-rooms/admin-rooms.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     ReservationCardComponent,
     NotFoundComponent,
     LoginSuccessComponent,
+    AdminDetailComponent,
+    AdminRoomsComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@
             <td>{{ reservation.start_date | date: "shortDate" }}</td>
             <td>{{ reservation.end_date | date: "shortDate" }}</td>
             <td>{{ reservation.guest_count }}</td>
-            <td><a>Details</a></td>
+            <td><a (click)="goToDetail()">Details</a></td>
           </tr>
         </tbody>
       </table>

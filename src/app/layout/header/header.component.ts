@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   isUserLogged():Boolean{
-    console.log(this.UserService.isLogged())
     return this.UserService.isLogged()
   }
 
