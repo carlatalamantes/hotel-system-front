@@ -23,4 +23,13 @@ export class ReservationsService {
       return this.http.get('http://localhost:3001/api/reservations', header);
     }
   }
+
+  cancelReservation(id:String,body:any):any{
+    if (this.token) {
+      var header = {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
+      };
+      return this.http.put(`http://localhost:3001/api/reservations/${id}`,body,header);
+    }
+  }
 }

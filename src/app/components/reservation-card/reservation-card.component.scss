@@ -50,7 +50,12 @@ p {
 }
 
 
-
+button{
+        border: none;
+        font-family: 'Archivo', sans-serif;
+        letter-spacing: 5px;
+   
+}
 
 @media (max-width: 480px) {
     h3,h4 {

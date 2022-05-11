@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { CookieService } from "ngx-cookie-service";
 import jwt_decode from "jwt-decode";
 
@@ -8,8 +8,15 @@ import jwt_decode from "jwt-decode";
   providedIn: 'root'
 })
 export class UserService {
+  token: String = '';
+  header: any;
 
-  constructor(private http: HttpClient, private cookies: CookieService) { }
+  constructor(private http: HttpClient, private cookies: CookieService) {
+    this.token = this.getToken();
+    this.header = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
+    };
+   }
 
   login(user: any): Observable<any> {
     return this.http.post("http://localhost:3001/api/users/login", user);
@@ -19,6 +26,9 @@ export class UserService {
     return this.http.post("http://localhost:3001/api/users", user);
   }
 
+  signupGoogle(): Observable<any> {
+    return this.http.get("http://localhost:3001/auth/google");
+  }
   setToken(token: any) {
     this.cookies.set("token", token);
   }
@@ -38,14 +48,28 @@ export class UserService {
     return false
   }
 
-  isAdmin(){
+  decodeToken(prop:any){
     var token = this.getToken();
     if (!token) return;
     var decoded:any = jwt_decode(token);
-    if(decoded.role=="admin"){
+    return decoded[prop]
+  }
+
+  isAdmin(){
+   var role=this.decodeToken("role");
+    if(role=="admin"){
       return true;
     }
     return false;
   }
 
+  getProfile(){
+  var id= this.decodeToken("id")
+  return this.http.get(`http://localhost:3001/api/users/${id}`,this.header);
+  }
+
+  getMyReservations(){
+    var id= this.decodeToken("id")
+    return this.http.get(`http://localhost:3001/api/users/${id}/reservations`,this.header);
+  }
 }

@@ -24,6 +24,10 @@ import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoginSuccessComponent } from './pages/login-success/login-success.component';
+
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,8 @@ import { ReservationCardComponent } from './components/reservation-card/reservat
     SidebarComponent,
     ProfileComponent,
     ReservationCardComponent,
+    NotFoundComponent,
+    LoginSuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,7 @@ import { ReservationCardComponent } from './components/reservation-card/reservat
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [CookieService, CanActivateViaAuthGuardGuard,CanActivateAlreadyLoggedGuard],
   bootstrap: [AppComponent],

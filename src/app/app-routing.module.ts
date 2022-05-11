@@ -13,18 +13,23 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { CanActivateAdminGuard } from './guards/can-activate-admin.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoginSuccessComponent } from './pages/login-success/login-success.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent},
+  { path: 'login-success', component: LoginSuccessComponent},
   { path: 'signup', component: SignupComponent,canActivate:[CanActivateAlreadyLoggedGuard]},
   { path: 'rooms', component: RoomsComponent,canActivate:[CanActivateViaAuthGuardGuard]},
   { path: 'booking/:id', component: BookingComponent,canActivate:[CanActivateViaAuthGuardGuard]},
   { path: 'roomdetail/:id', component: RoomdetailComponent,canActivate:[CanActivateViaAuthGuardGuard]},
   { path: 'admin', component: AdminComponent, canActivate:[CanActivateAdminGuard]},
   { path: 'admin/users', component: AdminUsersComponent,canActivate:[CanActivateAdminGuard]},
-  { path: 'profile', component: ProfileComponent,canActivate:[CanActivateViaAuthGuardGuard] }
+  { path: 'profile', component: ProfileComponent,canActivate:[CanActivateViaAuthGuardGuard] },
+  { path: '**', pathMatch: 'full', 
+        component: NotFoundComponent },
 ];
 
 @NgModule({

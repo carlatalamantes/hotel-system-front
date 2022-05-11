@@ -45,4 +45,8 @@ export class LoginComponent implements OnInit {
       this.loginForm.markAllAsTouched();
     }
   }
+
+  loginGoogle(){
+    window.location.href="http://localhost:3001/google/auth";
+  }
 }

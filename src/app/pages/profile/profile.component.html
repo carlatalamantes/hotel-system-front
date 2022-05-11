@@ -1,60 +1,49 @@
 <div class="overflow-hidden">
-    <header class="banner d-flex justify-content-center">
-        <div class="my-4">
-          <h1 class="title text-center">SERENDIPIA</h1>
-          <hr style="height: 2px; color: white; opacity: 100%" />
-          <h2 class="text-center">PROFILE</h2>
+  <header class="banner d-flex justify-content-center">
+    <div class="my-4">
+      <h1 class="title text-center">SERENDIPIA</h1>
+      <hr style="height: 2px; color: white; opacity: 100%" />
+      <h2 class="text-center">PROFILE</h2>
+    </div>
+  </header>
+
+  <body class="row d-flex justify-content-center m-0">
+    <section class="mt-5 row d-flex justify-content-center align-items-center">
+      <div class="row col-lg-10 col-md-12 profile-info">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="my-5">
+            <h3>Name:</h3>
+            <p>{{ profile.name | uppercase }}</p>
+          </div>
+
+          <div class="my-5">
+            <h3>Cellphone:</h3>
+            <p>{{ profile.cellphone }}</p>
+          </div>
         </div>
-      </header>
 
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="my-5">
+            <h3>Last name:</h3>
+            <p>{{ profile.first_lastname | uppercase }}</p>
+          </div>
 
-      <body class="row d-flex justify-content-center m-0 ">
-          
-        <section class="mt-5 row d-flex justify-content-center align-items-center">
-            
-            <div class="row col-lg-10 col-md-12 profile-info ">
-                
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="my-5">
-                        <h3>Name: </h3>
-                        <p>[nombre]</p>
-                    </div>
+          <div class="my-5">
+            <h3>Email:</h3>
+            <p>{{ profile.email | lowercase }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                    <div class="my-5">
-                        <h3>Cellphone: </h3>
-                        <p>[cellphone]</p>
-                    </div>
-                </div>
+    <section class="row d-flex justify-content-center align-items-center m-0">
+      <div class="row col-lg-10 col-md-12 my-5">
+        <p class="subtitle text-center mb-3">My reservations</p>
 
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="my-5">
-                        <h3>Last name: </h3>
-                        <p>[apellido]</p>
-                    </div>
-
-                    <div class="my-5">
-                        <h3>Email: </h3>
-                        <p>[Correo]</p>
-                    </div>
-                    
-                </div>
-            </div>
-
-        </section>
-
-        <section class="row d-flex justify-content-center align-items-center m-0">
-            <div class="row col-lg-10 col-md-12  my-5">
-                <p class="subtitle text-center mb-3">My reservations</p>
-
-                <div>
-                    <app-reservation-card></app-reservation-card>
-                    <app-reservation-card></app-reservation-card>
-                </div>
-
-
-            </div>
-
-        </section>
-
-      </body>
+        <div *ngFor="let res of reservationsArray">
+          <app-reservation-card [reservation]="res"></app-reservation-card>
+        </div>
+      </div>
+    </section>
+  </body>
 </div>
