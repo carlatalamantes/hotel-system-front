@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import jwt_decode from 'jwt-decode';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import jwt_decode from 'jwt-decode';
 export class UserService {
   token: String = '';
   header: any;
+  apiURL=environment.apiUrl;
 
   constructor(private http: HttpClient, private cookies: CookieService) {
     this.token = this.getToken();
@@ -19,15 +21,15 @@ export class UserService {
   }
 
   login(user: any): Observable<any> {
-    return this.http.post('http://localhost:3001/api/users/login', user);
+    return this.http.post(`${this.apiURL}api/users/login`, user);
   }
 
   signup(user: any): Observable<any> {
-    return this.http.post('http://localhost:3001/api/users', user);
+    return this.http.post(`${this.apiURL}api/users`, user);
   }
 
   signupGoogle(): Observable<any> {
-    return this.http.get('http://localhost:3001/auth/google');
+    return this.http.get(`${this.apiURL}auth/google`);
   }
   setToken(token: any) {
     this.cookies.set('token', token, {
@@ -73,13 +75,13 @@ export class UserService {
       id = this.decodeToken('id');
     }
 
-    return this.http.get(`http://localhost:3001/api/users/${id}`, this.header);
+    return this.http.get(`${this.apiURL}api/users/${id}`, this.header);
   }
 
   getMyReservations() {
     var id = this.decodeToken('id');
     return this.http.get(
-      `http://localhost:3001/api/users/${id}/reservations`,
+      `${this.apiURL}api/users/${id}/reservations`,
       this.header
     );
   }
@@ -89,7 +91,7 @@ export class UserService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.get('http://localhost:3001/api/users', header);
+      return this.http.get(`${this.apiURL}api/users`, header);
     }
   }
 
@@ -98,7 +100,7 @@ export class UserService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.delete(`http://localhost:3001/api/users/${id}`, header);
+      return this.http.delete(`${this.apiURL}api/users/${id}`, header);
     }
   }
 }

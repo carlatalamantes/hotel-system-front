@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RoomsService } from 'src/app/services/rooms.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin-rooms-detail',
@@ -10,11 +11,13 @@ import { RoomsService } from 'src/app/services/rooms.service';
 })
 export class AdminRoomsDetailComponent implements OnInit {
   room: any;
-  roomImage = 'http://localhost:3001/uploads/';
   imageForm:FormGroup;
   isError: Boolean = false;
   showAlert: Boolean = false;
   message: String = '';
+  apiurl=environment.apiUrl;
+  roomImage = `${this.apiurl}uploads/`;
+
 
   constructor(
     private activeRoute: ActivatedRoute,

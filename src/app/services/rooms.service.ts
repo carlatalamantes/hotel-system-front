@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { UserService } from './user.service';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class RoomsService {
   token: String = '';
   header: any;
+  apiurl=environment.apiUrl;
+
 
   constructor(private http: HttpClient, private UserService: UserService) {
     this.token = this.UserService.getToken();
@@ -21,7 +23,7 @@ export class RoomsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.get('http://localhost:3001/api/rooms', header);
+      return this.http.get(`${this.apiurl}api/rooms`, header);
     }
   }
 
@@ -30,7 +32,7 @@ export class RoomsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.get(`http://localhost:3001/api/rooms/${id}`, header);
+      return this.http.get(`${this.apiurl}api/rooms/${id}`, header);
     }
   }
 
@@ -39,7 +41,7 @@ export class RoomsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.post(`http://localhost:3001/api/rooms`, body,header);
+      return this.http.post(`${this.apiurl}api/rooms`, body,header);
     }
   }
 
@@ -48,12 +50,12 @@ export class RoomsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.delete(`http://localhost:3001/api/rooms/${id}`, header);
+      return this.http.delete(`${this.apiurl}api/rooms/${id}`, header);
     }
   }
 
   addImage(image:any,id:any):any{
-    return this.http.post(`http://localhost:3001/api/rooms/${id}/photo`,image);
+    return this.http.post(`${this.apiurl}api/rooms/${id}/photo`,image);
 
   }
 }

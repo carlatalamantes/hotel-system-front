@@ -2,8 +2,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomsService } from 'src/app/services/rooms.service';
-import { UserService } from 'src/app/services/user.service';
 import { ReservationsService } from 'src/app/services/reservations.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-booking',
@@ -17,7 +17,9 @@ export class BookingComponent implements OnInit {
   isError: Boolean = false;
   showAlert: Boolean = false;
   message: String = '';
-  roomImage = 'http://localhost:3001/uploads/';
+  apiurl=environment.apiUrl;
+  roomImage = `${this.apiurl}uploads/`;
+
 
   constructor(
     private fb: FormBuilder,

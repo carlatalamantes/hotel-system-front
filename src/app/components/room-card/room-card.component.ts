@@ -1,5 +1,6 @@
 import { Component,Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-room-card',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class RoomCardComponent implements OnChanges {
   @Input('item') item:any;
-  roomImage = 'http://localhost:3001/uploads/';
+  apiurl=environment.apiUrl;
+  roomImage = `${this.apiurl}/uploads/`;
 
 
   constructor( private router: Router) {

@@ -2,6 +2,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   isError: Boolean = false;
   showAlert: Boolean = false;
   message: String = '';
+  apiurl=environment.apiUrl;
+
 
   constructor(private fb: FormBuilder, private UserService: UserService,private router:Router) {
     this.loginForm = this.fb.group({
@@ -47,6 +50,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginGoogle(){
-    window.location.href="http://localhost:3001/google/auth";
+    window.location.href=`${this.apiurl}/google/auth`;
   }
 }

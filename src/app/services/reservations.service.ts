@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from './user.service';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationsService {
   token: String = '';
   header: any;
+  apiurl=environment.apiUrl;
+
   constructor(private http: HttpClient, private UserService: UserService) {
     this.token = this.UserService.getToken();
     this.header = {
@@ -20,7 +23,7 @@ export class ReservationsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.get('http://localhost:3001/api/reservations', header);
+      return this.http.get(`${this.apiurl}api/reservations`, header);
     }
   }
 
@@ -29,7 +32,7 @@ export class ReservationsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.put(`http://localhost:3001/api/reservations/${id}`,body,header);
+      return this.http.put(`${this.apiurl}api/reservations/${id}`,body,header);
     }
   }
 
@@ -38,7 +41,7 @@ export class ReservationsService {
       var header = {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
       };
-      return this.http.post(`http://localhost:3001/api/reservations`,body,header);
+      return this.http.post(`${this.apiurl}api/reservations`,body,header);
     }
   }
 }
