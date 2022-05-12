@@ -7,5 +7,51 @@
     /></a>
 
     <app-reservation-card [reservation]="reservation"></app-reservation-card>
+    <div class="card my-5">
+      <h3 class="card-header text-center">ROOM</h3>
+      <div class="d-flex justify-content-center">
+        <hr class="header-line" />
+      </div>
+
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="category">Name:</p>
+            <p>{{ room.name }}</p>
+            <p class="category">Beds:</p>
+            <p>{{ room.bed_count }}</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="category">Nightly price:</p>
+            <p>{{ room.nightly_price }}</p>
+            <p class="category">Services:</p>
+            <ul *ngFor="let service of room.services">
+              <li>{{ service }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card my-5">
+      <h3 class="card-header text-center">GUEST</h3>
+      <div class="d-flex justify-content-center">
+        <hr class="header-line" />
+      </div>
+
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="category">Name:</p>
+            <p>{{ user.name }} {{ user.first_lastname }}</p>
+            <p class="category">Email:</p>
+            <p>{{ user.email | lowercase }}</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <p class="category">Cellphone:</p>
+            <p>{{ user.cellphone }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

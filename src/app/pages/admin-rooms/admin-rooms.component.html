@@ -1,6 +1,12 @@
 <div class="admin_wrapper">
   <app-sidebar></app-sidebar>
   <div class="content_wrapper">
+    <h1>ROOMS</h1>
+    <app-alert
+      [message]="message"
+      [showAlert]="showAlert"
+      [isError]="isError"
+    ></app-alert>
     <div class="d-flex justify-content-end mb-3">
       <button
         class="btn btn-dark"
@@ -10,50 +16,10 @@
       >
         CREATE ROOM
       </button>
-
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- MODAL -->
     </div>
     <div class="table-responsive card">
       <table class="table table-borderless">
-        <thead class="table-light">
+        <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -77,3 +43,240 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ADD ROOM</h5>
+      </div>
+      <div class="modal-body">
+        <form
+          action=""
+          (ngSubmit)="onSubmit()"
+          [formGroup]="roomForm"
+          class="w-100"
+        >
+          <div class="mb-3">
+            <label>NAME</label>
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control"
+              placeholder="Enter room name"
+              name="name"
+              required
+            />
+            <div
+              *ngIf="
+                roomForm.controls['name'].invalid &&
+                (roomForm.controls['name'].dirty ||
+                  roomForm.controls['name'].touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="roomForm.controls['name'].errors?.['required']">
+                Name is required
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <label>BUILDING</label>
+              <input
+                formControlName="building"
+                type="text"
+                class="form-control"
+                placeholder="Enter room building"
+                name="building"
+                required
+              />
+              <div
+                *ngIf="
+                  roomForm.controls['building'].invalid &&
+                  (roomForm.controls['building'].dirty ||
+                    roomForm.controls['building'].touched)
+                "
+                class="text-danger"
+              >
+                <div *ngIf="roomForm.controls['building'].errors?.['required']">
+                  Building is required
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label>EXTERIOR NUMBER</label>
+              <input
+                formControlName="exterior_number"
+                type="text"
+                class="form-control"
+                placeholder="Enter room number"
+                name="exterior_number"
+                required
+              />
+              <div
+                *ngIf="
+                  roomForm.controls['exterior_number'].invalid &&
+                  (roomForm.controls['exterior_number'].dirty ||
+                    roomForm.controls['exterior_number'].touched)
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="roomForm.controls['exterior_number'].errors?.['required']"
+                >
+                  Exterior number is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label>NIGHTLY PRICE</label>
+            <input
+              formControlName="nightly_price"
+              type="number"
+              class="form-control"
+              placeholder="Enter room price"
+              name="nightly_price"
+              required
+            />
+            <div
+              *ngIf="
+                roomForm.controls['nightly_price'].invalid &&
+                (roomForm.controls['nightly_price'].dirty ||
+                  roomForm.controls['nightly_price'].touched)
+              "
+              class="text-danger"
+            >
+              <div
+                *ngIf="roomForm.controls['nightly_price'].errors?.['required']"
+              >
+                Price is required
+              </div>
+              <div *ngIf="roomForm.controls['nightly_price'].errors?.['min']">
+                Price must be 1 or higer
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <label>BED COUNT</label>
+              <input
+                formControlName="bed_count"
+                type="number"
+                class="form-control"
+                placeholder="Enter room beds"
+                name="bed_count"
+                required
+              />
+              <div
+                *ngIf="
+                  roomForm.controls['bed_count'].invalid &&
+                  (roomForm.controls['bed_count'].dirty ||
+                    roomForm.controls['bed_count'].touched)
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="roomForm.controls['bed_count'].errors?.['required']"
+                >
+                  Bed count is required
+                </div>
+                <div *ngIf="roomForm.controls['bed_count'].errors?.['min']">
+                  Bed count must be 1 or higher
+                </div>
+                <div *ngIf="roomForm.controls['bed_count'].errors?.['max']">
+                  Bed count must be 4 or lower
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label>GUEST COUNT</label>
+              <input
+                formControlName="guest_count"
+                type="number"
+                class="form-control"
+                placeholder="Enter room guests"
+                name="guest_count"
+                required
+              />
+              <div
+                *ngIf="
+                  roomForm.controls['guest_count'].invalid &&
+                  (roomForm.controls['guest_count'].dirty ||
+                    roomForm.controls['guest_count'].touched)
+                "
+                class="text-danger"
+              >
+                <div
+                  *ngIf="roomForm.controls['guest_count'].errors?.['required']"
+                >
+                  Guest count is required
+                </div>
+                <div *ngIf="roomForm.controls['guest_count'].errors?.['min']">
+                  Guest count must be 1 or higher
+                </div>
+                <div *ngIf="roomForm.controls['guest_count'].errors?.['max']">
+                  Guest count must be 4 or lower
+                </div>
+              </div>
+            </div>
+          </div>
+          <label class="mb-3">SERVICES</label>
+          <div class="mb-3" *ngFor="let service of servicesArray">
+            <div class="form-check">
+              <label class="form-check-label" for="exampleCheck1"
+                ><input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="service"
+                  [value]="service"
+                  (change)="onCheckChange($event)"
+                />
+                {{ service }}</label
+              >
+            </div>
+
+            <div
+              *ngIf="
+                roomForm.controls['services'].invalid &&
+                (roomForm.controls['services'].dirty ||
+                  roomForm.controls['services'].touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="roomForm.controls['services'].errors?.['required']">
+                Services are required
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onSubmit()"
+          data-bs-dismiss="modal"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL -->

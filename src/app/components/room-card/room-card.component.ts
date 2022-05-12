@@ -8,14 +8,19 @@ import { Router } from '@angular/router';
 })
 export class RoomCardComponent implements OnChanges {
   @Input('item') item:any;
+  roomImage = 'http://localhost:3001/uploads/';
 
-  constructor( private router: Router) { }
+
+  constructor( private router: Router) {
+   }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: any) {
     this.item=changes.item.currentValue;
+    this.roomImage+=changes.item.currentValue.image
+
   }
 
   goToDetail(id: any) {

@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
     return this.UserService.isLogged()
   }
 
-  logout():void{
-     this.UserService.deleteToken()
+  async logout(){
+     await this.UserService.deleteToken()
      this.router.navigate(["/home"])
 
   }

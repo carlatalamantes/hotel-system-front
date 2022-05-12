@@ -34,9 +34,12 @@ export class RoomsService {
     }
   }
 
-  createReservation(body: any): any {
+  createRoom(body: any): any {
     if (this.token) {
-      return this.http.post(`http://localhost:3001/api/reservations/`,body, this.header);
+      var header = {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
+      };
+      return this.http.post(`http://localhost:3001/api/rooms`, body,header);
     }
   }
 

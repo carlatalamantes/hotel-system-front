@@ -18,7 +18,7 @@ export class LoginSuccessComponent implements OnInit {
   ngOnInit(): void {
     if(this.token!=null){
       this.userService.setToken(this.token)
-      this.router.navigateByUrl("/rooms")
+      this.router.navigateByUrl("/profile")
     }
   }
 

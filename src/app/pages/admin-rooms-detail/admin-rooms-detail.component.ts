@@ -12,6 +12,9 @@ export class AdminRoomsDetailComponent implements OnInit {
   room: any;
   roomImage = 'http://localhost:3001/uploads/';
   imageForm:FormGroup;
+  isError: Boolean = false;
+  showAlert: Boolean = false;
+  message: String = '';
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -29,10 +32,14 @@ export class AdminRoomsDetailComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteRoom(id: any) {
-    this.roomService.deleteRoom(id).subscribe((res: any) => {
-      console.log(res);
-      this.router.navigate(['/admin/rooms']);
-    });
+    this.roomService.deleteRoom(id).subscribe(
+      (res: any) => {
+        this.router.navigate(['/admin/rooms']);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 
   onSubmit() {
@@ -41,7 +48,6 @@ export class AdminRoomsDetailComponent implements OnInit {
     formData.append('image', img);
 
     this.roomService.addImage(formData,this.room._id).subscribe((res: any) => {
-     console.log(res)
      this.router.navigate(["/admin/rooms"])
     });
 

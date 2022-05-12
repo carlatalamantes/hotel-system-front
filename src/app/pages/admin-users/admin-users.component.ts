@@ -5,14 +5,16 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-admin-users',
   templateUrl: './admin-users.component.html',
-  styleUrls: ['./admin-users.component.scss']
+  styleUrls: ['./admin-users.component.scss'],
 })
 export class AdminUsersComponent implements OnInit {
-
   usersArray: any[] = [];
   num: any = 6;
+  isError: Boolean = false;
+  showAlert: Boolean = false;
+  message: String = '';
 
-  constructor(private userService:UserService,private router:Router) { 
+  constructor(private userService: UserService, private router: Router) {
     this.userService.getProfiles().subscribe((res: any) => {
       this.usersArray = res;
       this.num = res.length;
@@ -26,12 +28,16 @@ export class AdminUsersComponent implements OnInit {
     });
   }
 
-
-  deleteUser(id:any){
-    this.userService.deleteAccount(id).subscribe((res: any) => {
-      console.log(res)
-     this.ngOnInit();
-    });
+  deleteUser(id: any) {
+    this.userService.deleteAccount(id).subscribe(
+      (res: any) => {
+        this.message=res.message;
+        this.showAlert=true;
+        this.ngOnInit();
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
-
 }

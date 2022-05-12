@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       this.UserService.login(data).subscribe({
         next: (response) => {  
           this.UserService.setToken(response.token)
-          this.router.navigateByUrl("/rooms")
+          this.router.navigateByUrl("/profile")
 
         },
         error: (err) => {

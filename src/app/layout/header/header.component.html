@@ -39,7 +39,7 @@
             >Home</a
           >
         </li>
-        <li class="nav-item" *ngIf="isUserLogged()">
+        <li class="nav-item" *ngIf="isUserLogged() && !isAdmin()">
           <a [routerLink]="['/rooms']" class="nav-link m-4 menu-item"
             >Book now</a
           >
@@ -65,12 +65,7 @@
           >
         </li>
         <li class="nav-item" *ngIf="isUserLogged()">
-          <a
-            [routerLink]="['/home']"
-            class="nav-link m-4 menu-item"
-            (click)="logout()"
-            >Log out</a
-          >
+          <a class="nav-link m-4 menu-item" (click)="logout()">Log out</a>
         </li>
       </ul>
     </div>

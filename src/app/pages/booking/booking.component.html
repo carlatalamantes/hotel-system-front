@@ -3,18 +3,23 @@
     <div class="my-4">
       <h1 class="title text-center">SERENDIPIA</h1>
       <hr style="height: 2px; color: white; opacity: 100%" />
-      <h2 class="text-center">BOOK ROOM</h2>
+      <h2 class="text-center" style="color: white">BOOK ROOM</h2>
     </div>
   </header>
 
-  <body class="row d-flex justify-content-center align-items-center">
-    <form
-      (ngSubmit)="onSubmit()"
-      [formGroup]="bookingForm"
-      action=""
-      class="col-lg-6 col-sm-md-12"
-    >
-      <div class="row d-flex justify-content-center align-items-center">
+  <body
+    class="d-flex flex-row align-items-baseline justify-content-center book_row"
+  >
+    <div class="d-flex flex-column column_book">
+      <h2 class="room-name mb-5 text-center" style="line-height: 30px">
+        PRICE <span>$ {{ this.room.nightly_price }}</span>
+      </h2>
+      <form
+        (ngSubmit)="onSubmit()"
+        [formGroup]="bookingForm"
+        action=""
+        class="flex-fill"
+      >
         <app-alert
           [message]="message"
           [showAlert]="showAlert"
@@ -33,9 +38,29 @@
             max="4"
             required
           />
+          <div
+            *ngIf="
+              bookingForm.controls['guest_count'].invalid &&
+              (bookingForm.controls['guest_count'].dirty ||
+                bookingForm.controls['guest_count'].touched)
+            "
+            class="text-danger"
+          >
+            <div
+              *ngIf="bookingForm.controls['guest_count'].errors?.['required']"
+            >
+              Guests number is required
+            </div>
+            <div *ngIf="bookingForm.controls['guest_count'].errors?.['min']">
+              Guests number must be at least 1
+            </div>
+            <div *ngIf="bookingForm.controls['guest_count'].errors?.['max']">
+              Guests number must be up to 4
+            </div>
+          </div>
         </div>
 
-        <div class="mb-5 col-lg-6 col-md-12">
+        <div class="mb-5 col-12">
           <h3>CHECK-IN</h3>
           <input
             formControlName="start_date"
@@ -46,9 +71,23 @@
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              bookingForm.controls['start_date'].invalid &&
+              (bookingForm.controls['start_date'].dirty ||
+                bookingForm.controls['start_date'].touched)
+            "
+            class="text-danger"
+          >
+            <div
+              *ngIf="bookingForm.controls['start_date'].errors?.['required']"
+            >
+              Start date is required
+            </div>
+          </div>
         </div>
 
-        <div class="mb-5 col-lg-6 col-md-12">
+        <div class="mb-5 col-12">
           <h3>CHECK-OUT</h3>
           <input
             formControlName="end_date"
@@ -59,42 +98,45 @@
             aria-describedby="basic-addon2"
             required
           />
+          <div
+            *ngIf="
+              bookingForm.controls['end_date'].invalid &&
+              (bookingForm.controls['end_date'].dirty ||
+                bookingForm.controls['end_date'].touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="bookingForm.controls['end_date'].errors?.['required']">
+              End date is required
+            </div>
+          </div>
         </div>
 
         <div class="d-flex justify-content-center mt-2 mb-5">
           <button type="submit" class="btn btn-dark">BOOK</button>
         </div>
+      </form>
+    </div>
+
+    <div class="d-flex flex-column column_room">
+      <h2 class="room-name text-center">{{ this.room.name | uppercase }}</h2>
+      <hr />
+      <img [src]="roomImage" alt="" />
+
+      <div class="d-flex justify-content-between room-details">
+        <p *ngIf="this.room.building">
+          BUILDING: {{ this.room.building | uppercase }}
+        </p>
+        <p *ngIf="this.room.exterior_number">
+          ROOM NUMBER: {{ this.room.exterior_number | uppercase }}
+        </p>
       </div>
-    </form>
-    <div class="col-lg-5 col-md-sm-12">
-      <div class="">
-        <h1 class="room-name text-center">{{ this.room.name | uppercase }}</h1>
-        <hr />
-        <img
-          src="https://exp.cdn-hotels.com/hotels/43000000/42560000/42560000/42559911/4541ca4c_z.jpg?impolicy=fcrop&w=500&h=333&q=medium"
-          alt=""
-        />
 
-        <div class="d-flex justify-content-between room-details">
-          <p *ngIf="this.room.building">
-            BUILDING: {{ this.room.building | uppercase }}
-          </p>
-          <p *ngIf="this.room.exterior_number">
-            ROOM NUMBER: {{ this.room.exterior_number | uppercase }}
-          </p>
-        </div>
-
-        <p class="room-details m-0">SERVICES</p>
-        <div
-          class="d-flex justify-content-between"
-          *ngFor="let service of room.services"
-        >
-          <p>{{ service | uppercase }}</p>
-        </div>
-
-        <h1 class="room-name mb-5" style="line-height: 30px">
-          PRICE <span>$ {{ this.room.nightly_price }}</span>
-        </h1>
+      <p class="room-details mt-4 text-center">SERVICES</p>
+      <div class="text-center">
+        <ul *ngFor="let service of room.services">
+          <li>{{ service | uppercase }}</li>
+        </ul>
       </div>
     </div>
   </body>

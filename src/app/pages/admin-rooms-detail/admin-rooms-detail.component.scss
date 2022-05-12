@@ -1,16 +1,38 @@
 .admin_wrapper {
-    height: 100vh;
+    min-min-height: 100vh;
     display: flex;
     flex-direction: row;
 
-    .content_wrapper{
+    .content_wrapper {
         padding: 2%;
         width: 100%;
     }
 
-    
-   .backicon{
-    height: 30px;
-}
-}
 
+    .backicon {
+        height: 30px;
+
+
+
+    }
+
+    h2 {
+        letter-spacing: 30px;
+        line-height: 30px;
+        margin-bottom: 1rem;
+    }
+
+    h4 {
+        font-weight: 600;
+    }
+    
+}
+/* MOBILE */
+
+@media (min-width: 320px) and (max-width: 1024px) {
+    .content_wrapper{
+     width:calc(100% - 60px) !important;
+ 
+     }
+ }
+ 

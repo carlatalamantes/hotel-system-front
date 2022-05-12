@@ -1,5 +1,5 @@
 .admin_wrapper {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
 
@@ -7,15 +7,42 @@
         padding: 2%;
         width: 100%;
 
-       
-    
-        
+
+        h1{
+            letter-spacing: 30px;
+            line-height: 50px;
+            font-size: 35px;
+            margin-bottom: 1rem;
+            word-break: break-all;
+        }
 
         a{
             text-decoration: underline;
             font-weight: 600;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+
         }
+        thead{
+            border-bottom: 3px solid rgba(188, 196, 199, 0.295)
+        }
+
+        th{
+            letter-spacing: 5px;
+            font-weight: bold; 
+            text-align: left;
+        }
+
+        
     }
 }
 
+/* MOBILE */
+
+@media (min-width: 320px) and (max-width: 1024px) {
+   .content_wrapper{
+    width:calc(100% - 60px) !important;
+
+    }
+}

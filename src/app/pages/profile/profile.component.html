@@ -7,7 +7,7 @@
     </div>
   </header>
 
-  <body class="row d-flex justify-content-center m-0">
+  <body class="row d-flex justify-content-center m-0" style="min-height: 65vh">
     <section class="mt-5 row d-flex justify-content-center align-items-center">
       <div class="row col-lg-10 col-md-12 profile-info">
         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -17,8 +17,8 @@
           </div>
 
           <div class="my-5">
-            <h3>Cellphone:</h3>
-            <p>{{ profile.cellphone }}</p>
+            <h3>Email:</h3>
+            <p>{{ profile.email | lowercase }}</p>
           </div>
         </div>
 
@@ -28,9 +28,9 @@
             <p>{{ profile.first_lastname | uppercase }}</p>
           </div>
 
-          <div class="my-5">
-            <h3>Email:</h3>
-            <p>{{ profile.email | lowercase }}</p>
+          <div class="my-5" *ngIf="profile.cellphone">
+            <h3>Cellphone:</h3>
+            <p>{{ profile.cellphone }}</p>
           </div>
         </div>
       </div>
@@ -39,7 +39,9 @@
     <section class="row d-flex justify-content-center align-items-center m-0">
       <div class="row col-lg-10 col-md-12 my-5">
         <p class="subtitle text-center mb-3">My reservations</p>
-
+        <div *ngIf="reservationsArray.length == 0" class="">
+          <p class="text-center">No reservations to show</p>
+        </div>
         <div *ngFor="let res of reservationsArray">
           <app-reservation-card [reservation]="res"></app-reservation-card>
         </div>

@@ -32,6 +32,18 @@
           aria-describedby="basic-addon2"
           required
         />
+        <div
+          *ngIf="
+            loginForm.controls['email'].invalid &&
+            (loginForm.controls['email'].dirty ||
+              loginForm.controls['email'].touched)
+          "
+          class="text-danger"
+        >
+          <div *ngIf="loginForm.controls['email'].errors?.['required']">
+            Email is required
+          </div>
+        </div>
       </div>
 
       <div>
@@ -46,6 +58,18 @@
           aria-describedby="basic-addon2"
           required
         />
+        <div
+          *ngIf="
+            loginForm.controls['password'].invalid &&
+            (loginForm.controls['password'].dirty ||
+              loginForm.controls['password'].touched)
+          "
+          class="text-danger"
+        >
+          <div *ngIf="loginForm.controls['password'].errors?.['required']">
+            Password is required
+          </div>
+        </div>
       </div>
 
       <div class="mt-3">
