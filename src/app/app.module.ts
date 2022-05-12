@@ -30,6 +30,7 @@ import { LoginSuccessComponent } from './pages/login-success/login-success.compo
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { AdminDetailComponent } from './pages/admin-detail/admin-detail.component';
 import { AdminRoomsComponent } from './pages/admin-rooms/admin-rooms.component';
+import { AdminRoomsDetailComponent } from './pages/admin-rooms-detail/admin-rooms-detail.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AdminRoomsComponent } from './pages/admin-rooms/admin-rooms.component';
     LoginSuccessComponent,
     AdminDetailComponent,
     AdminRoomsComponent,
+    AdminRoomsDetailComponent,
   ],
   imports: [
     BrowserModule,

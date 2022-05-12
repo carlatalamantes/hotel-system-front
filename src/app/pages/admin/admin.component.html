@@ -1,7 +1,7 @@
 <div class="admin_wrapper">
   <app-sidebar></app-sidebar>
   <div class="content_wrapper">
-    <div class="table-responsive">
+    <div class="table-responsive card">
       <table class="table table-borderless">
         <thead class="table-light">
           <tr>
@@ -18,7 +18,7 @@
             <td>{{ reservation.start_date | date: "shortDate" }}</td>
             <td>{{ reservation.end_date | date: "shortDate" }}</td>
             <td>{{ reservation.guest_count }}</td>
-            <td><a (click)="goToDetail()">Details</a></td>
+            <td><a (click)="goToDetail(reservation)">Details</a></td>
           </tr>
         </tbody>
       </table>

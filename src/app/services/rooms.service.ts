@@ -39,4 +39,18 @@ export class RoomsService {
       return this.http.post(`http://localhost:3001/api/reservations/`,body, this.header);
     }
   }
+
+  deleteRoom(id:any):any{
+    if (this.token) {
+      var header = {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
+      };
+      return this.http.delete(`http://localhost:3001/api/rooms/${id}`, header);
+    }
+  }
+
+  addImage(image:any,id:any):any{
+    return this.http.post(`http://localhost:3001/api/rooms/${id}/photo`,image);
+
+  }
 }

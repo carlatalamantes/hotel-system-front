@@ -17,33 +17,69 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginSuccessComponent } from './pages/login-success/login-success.component';
 import { AdminDetailComponent } from './pages/admin-detail/admin-detail.component';
 import { AdminRoomsComponent } from './pages/admin-rooms/admin-rooms.component';
+import { AdminRoomsDetailComponent } from './pages/admin-rooms-detail/admin-rooms-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'login-success', component: LoginSuccessComponent },
-  { path: 'signup', component: SignupComponent, canActivate: [CanActivateAlreadyLoggedGuard] },
-  { path: 'rooms', component: RoomsComponent, canActivate: [CanActivateViaAuthGuardGuard] },
-  { path: 'booking/:id', component: BookingComponent, canActivate: [CanActivateViaAuthGuardGuard] },
-  { path: 'roomdetail/:id', component: RoomdetailComponent, canActivate: [CanActivateViaAuthGuardGuard] },
   {
-    path: 'admin', component: AdminComponent, canActivate: [CanActivateAdminGuard], children: [{
-      path: "admin/:id", component: AdminDetailComponent
-    }]
+    path: 'signup',
+    component: SignupComponent,
+    canActivate: [CanActivateAlreadyLoggedGuard],
   },
-  { path: 'admin/users', component: AdminUsersComponent, canActivate: [CanActivateAdminGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [CanActivateViaAuthGuardGuard] },
-  { path: 'admin/rooms', component: AdminRoomsComponent, canActivate: [CanActivateAdminGuard] },
+  {
+    path: 'rooms',
+    component: RoomsComponent,
+    canActivate: [CanActivateViaAuthGuardGuard],
+  },
+  {
+    path: 'booking/:id',
+    component: BookingComponent,
+    canActivate: [CanActivateViaAuthGuardGuard],
+  },
+  {
+    path: 'roomdetail/:id',
+    component: RoomdetailComponent,
+    canActivate: [CanActivateViaAuthGuardGuard],
+  },
+  {
+    path: 'admin',
+    canActivate: [CanActivateAdminGuard],
+    children: [
+      { path: 'reservations', children:[
+        {path:"", component: AdminComponent},
+        { path: ':id', component: AdminDetailComponent },
+      ] },
+      { path: 'users', children:[
+        {path:"", component: AdminUsersComponent},
+      ] },
+      { path: 'rooms', children:[
+        {path:"", component: AdminRoomsComponent},
+        { path: ':id', component: AdminRoomsDetailComponent },
+      ] },      
+    ],
+  },
 
   {
-    path: '**', pathMatch: 'full',
-    component: NotFoundComponent
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [CanActivateViaAuthGuardGuard],
+  },
+  {
+    path: 'not-found',
+    pathMatch: 'full',
+    component: NotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

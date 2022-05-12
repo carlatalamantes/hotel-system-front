@@ -72,4 +72,22 @@ export class UserService {
     var id= this.decodeToken("id")
     return this.http.get(`http://localhost:3001/api/users/${id}/reservations`,this.header);
   }
+
+  getProfiles():any{
+    if (this.token) {
+      var header = {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
+      };
+      return this.http.get('http://localhost:3001/api/users', header);
+    }
+  }
+
+  deleteAccount(id:any):any{
+    if (this.token) {
+      var header = {
+        headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`),
+      };
+      return this.http.delete(`http://localhost:3001/api/users/${id}`, header);
+    }
+  }
 }

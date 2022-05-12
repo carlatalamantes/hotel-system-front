@@ -1,0 +1,111 @@
+<div class="admin_wrapper">
+  <a href=""></a>
+  <app-sidebar></app-sidebar>
+  <div class="content_wrapper">
+    <a [routerLink]="['/admin/rooms']">
+      <img class="backicon" src="../../../assets/admin/back.png" alt="..."
+    /></a>
+    <div
+      class="mt-5 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="card mb-3 w-75">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img [src]="roomImage" class="img-fluid rounded-start" alt="..." />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h2 class="card-title">{{ room.name }}</h2>
+              <h4>Guests</h4>
+              <p class="card-text">
+                {{ room.guest_count }}
+              </p>
+              <h4>Nightly Price</h4>
+              <p class="card-text">
+                {{ room.nightly_price }}
+              </p>
+              <h4>Bed Count</h4>
+              <p class="card-text">
+                {{ room.bed_count }}
+              </p>
+              <h4>Location</h4>
+              <p class="card-text">
+                Building: {{ room.building }}, Number:
+                {{ room.exterior_number }}
+              </p>
+              <h4>Services</h4>
+              <ul *ngFor="let service of room.services">
+                <li>{{ service }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+          <button
+            class="btn btn-dark m-1"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            UPLOAD PHOTO
+          </button>
+          <button
+            class="btn btn-danger m-1"
+            (click)="deleteRoom(room._id)"
+            type="button"
+          >
+            DELETE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">UPLOAD PHOTO</h5>
+        </div>
+        <form action="" (ngSubmit)="onSubmit()" [formGroup]="imageForm">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="image">File</label>
+              <input
+                formControlName="image"
+                id="image"
+                type="file"
+                class="form-control"
+                (change)="onFileChange($event)"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              CLOSE
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              SAVE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL -->
+</div>

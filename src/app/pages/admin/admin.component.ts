@@ -14,7 +14,6 @@ export class AdminComponent implements OnInit {
     this.reservationService.getReservations().subscribe((res: any) => {
       this.reservationsArray = res;
       this.num = res.length;
-      console.log(res)
     });
   }
 
@@ -22,8 +21,8 @@ export class AdminComponent implements OnInit {
   }
 
 
-  goToDetail(){
-    this.router.navigate([`/admin`]);
+  goToDetail(res:any){
+    this.router.navigate([`/admin/reservations/${res._id}`,{reservation:JSON.stringify(res)}]);
   }
 
 

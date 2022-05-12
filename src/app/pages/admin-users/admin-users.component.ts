@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-users',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminUsersComponent implements OnInit {
 
-  constructor() { }
+  usersArray: any[] = [];
+  num: any = 6;
+
+  constructor(private userService:UserService,private router:Router) { 
+    this.userService.getProfiles().subscribe((res: any) => {
+      this.usersArray = res;
+      this.num = res.length;
+    });
+  }
 
   ngOnInit(): void {
+    this.userService.getProfiles().subscribe((res: any) => {
+      this.usersArray = res;
+      this.num = res.length;
+    });
+  }
+
+
+  deleteUser(id:any){
+    this.userService.deleteAccount(id).subscribe((res: any) => {
+      console.log(res)
+     this.ngOnInit();
+    });
   }
 
 }

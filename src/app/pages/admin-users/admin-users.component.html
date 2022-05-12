@@ -1,3 +1,30 @@
-<div>
+<div class="admin_wrapper">
   <app-sidebar></app-sidebar>
+  <div class="content_wrapper">
+    <div class="table-responsive card">
+      <table class="table table-borderless">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Cellphone</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let user of usersArray; let i = index">
+          <tr>
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              {{ user.name | uppercase }}
+              {{ user.first_lastname | uppercase }}
+            </td>
+            <td>{{ user.email | lowercase }}</td>
+            <td>{{ user.cellphone }}</td>
+            <td><a (click)="deleteUser(user._id)">DELETE</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

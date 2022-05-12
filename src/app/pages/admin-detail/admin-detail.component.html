@@ -1,1 +1,11 @@
-<p>admin-detail works!</p>
+<div class="admin_wrapper">
+  <a href=""></a>
+  <app-sidebar></app-sidebar>
+  <div class="content_wrapper">
+    <a [routerLink]="['/admin/reservations']">
+      <img class="backicon" src="../../../assets/admin/back.png" alt="..."
+    /></a>
+
+    <app-reservation-card [reservation]="reservation"></app-reservation-card>
+  </div>
+</div>

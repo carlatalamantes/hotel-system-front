@@ -1,0 +1,17 @@
+.admin_wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    .content_wrapper{
+        padding: 2%;
+        width: 100%;
+    
+        a{
+            text-decoration: underline;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}
+
