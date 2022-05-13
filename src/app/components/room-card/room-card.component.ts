@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class RoomCardComponent implements OnChanges {
   @Input('item') item:any;
   apiurl=environment.apiUrl;
-  roomImage = `${this.apiurl}/uploads/`;
+  roomImage = `${this.apiurl}uploads/`;
 
 
   constructor( private router: Router) {

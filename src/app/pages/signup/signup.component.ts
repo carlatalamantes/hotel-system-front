@@ -89,6 +89,6 @@ export class SignupComponent implements OnInit {
   }
 
   signupGoogle() {
-   window.location.href=`${this.apiurl}/google/auth`;
+   window.location.href=`${this.apiurl}google/auth`;
   }
 }

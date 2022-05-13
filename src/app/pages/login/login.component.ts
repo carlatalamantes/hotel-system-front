@@ -50,6 +50,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginGoogle(){
-    window.location.href=`${this.apiurl}/google/auth`;
+    window.location.href=`${this.apiurl}google/auth`;
   }
 }
