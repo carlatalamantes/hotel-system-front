@@ -141,6 +141,7 @@
             name="password"
             aria-describedby="basic-addon2"
             required
+            id="password1"
           />
           <div
             *ngIf="
@@ -166,6 +167,7 @@
             name="confirmPassword"
             aria-describedby="basic-addon2"
             required
+            id="password2"
           />
           <div
             *ngIf="
@@ -201,7 +203,9 @@
         </div>
 
         <div class="d-flex justify-content-center mt-4 mb-3">
-          <button type="submit" class="btn btn-dark">SIGN UP</button>
+          <button type="submit" class="btn btn-dark" id="btnSignup">
+            SIGN UP
+          </button>
         </div>
         <p class="text-center">or</p>
         <div class="d-flex justify-content-center mb-5">
