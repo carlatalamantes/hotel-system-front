@@ -11,7 +11,19 @@
       <div class="card mb-3 w-75">
         <div class="row g-0">
           <div class="col-md-6 p-3">
-            <img [src]="roomImage" class="img-fluid rounded-start" alt="..." />
+            <img
+              [src]="roomImage"
+              class="img-fluid rounded-start"
+              alt="..."
+              *ngIf="room.image"
+            />
+            <img
+              src="../../../assets/admin/thumbnail.png"
+              class="img-fluid rounded-start"
+              alt="..."
+              *ngIf="room.image == undefined"
+            />
+
             <div class="d-flex justify-content-center mt-3 mb-3">
               <button
                 class="btn btn-dark m-1"
