@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
   }
 
   async logout(){
-     await this.UserService.deleteToken()
-     this.router.navigate(["/home"])
+    await this.UserService.deleteToken()
+    this.router.navigate(["/home"])
 
   }
 
