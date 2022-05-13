@@ -24,9 +24,9 @@ export class AlertComponent implements OnChanges  {
   }
 
   ngOnChanges(changes: any) {
-    this.isError=changes.isError.currentValue;
-    this.showAlert=changes.showAlert.currentValue;
-    this.message=changes.message.currentValue;
+    this.isError=changes.isError?.currentValue;
+    this.showAlert=changes.showAlert?.currentValue;
+    this.message=changes.message?.currentValue;
   }
 
 }

@@ -20,8 +20,8 @@ export class RoomCardComponent implements OnChanges {
   }
 
   ngOnChanges(changes: any) {
-    this.item=changes.item.currentValue;
-    this.roomImage+=changes.item.currentValue.image
+    this.item=changes.item?.currentValue;
+    this.roomImage+=changes.item?.currentValue.image
 
   }
 

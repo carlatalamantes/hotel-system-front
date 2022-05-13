@@ -82,6 +82,7 @@ export class AdminRoomsComponent implements OnInit {
         (res: any)=>{
           this.message=res.message;
           this.showAlert=true;
+          this.ngOnInit()
         },
         (err: any)=>{
           this.isError=true;
@@ -93,6 +94,7 @@ export class AdminRoomsComponent implements OnInit {
     } else {
       this.roomForm.markAllAsTouched();
     }
+    this.roomForm.reset()
   }
 
   onCheckChange(event: any) {
